@@ -38,11 +38,7 @@ export async function getOverviewData({ timeframe, timescale, chain, excludes = 
         url += `&${excludesParam}`;
     }
 
-    const response = await fetch(url, {
-        headers: {
-            'X-API-Password': process.env.API_PASSWORD || ''
-        }
-    });
+    const response = await fetch(url);
     if (!response.ok) {
         throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
     }
